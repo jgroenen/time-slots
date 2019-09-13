@@ -3,7 +3,7 @@
 ini_set("display_errors", 1);
 ini_set("error_reporting", E_ALL);
 
-$data = json_decode(file_get_contents("http://x.apitecture.nl/posts.json"), true);
+$data = json_decode(file_get_contents("posts.json"), true);
 
 $dagen = [];
 
@@ -42,7 +42,7 @@ $('button').click(function () {
     var slot = $(this).html();
     var naam = prompt("Wat is je naam?");
     $(this).replaceWith(naam);
-    $.post("/save.php", {
+    $.post("save.php", {
         dag: dag,
         slot: slot,
         naam: naam
